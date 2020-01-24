@@ -1,0 +1,35 @@
+<mat-card style="text-align: center;">
+    <mat-card-content>
+        <form [formGroup]="rdvForm" (ngSubmit)="ngOnSubmit()">
+            <div class="form-group">
+                <mat-form-field>
+                    <input matInput placeholder="Nom" type="text" formControlName="nomClient"
+                        id="nomClient" class="form-control" />
+                </mat-form-field>
+                <mat-form-field>
+                    <input matInput placeholder="Prenom" type="text" formControlName="prenomClient" id="prenomClient"
+                        class="form-control" />
+                </mat-form-field>
+                <div>
+                    <mat-form-field>
+                        <mat-label>Coiffeur</mat-label>
+                        <select matNativeControl required formControlName="nomCoiffeur">
+                          <option value="Maxence">Maxence</option>
+                          <option value="Sébastien">Sébastien</option>
+                          <option value="Alix">Alix</option>
+                        </select>
+                      </mat-form-field>
+                      <mat-form-field>
+                        <input matInput [matDatepicker]="picker" placeholder="Date du rendez-vous" formControlName="dateRdv">
+                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                        <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                      
+                </div>
+                <div>
+                    <button type="submit" mat-raised-button color="primary">Créer</button>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

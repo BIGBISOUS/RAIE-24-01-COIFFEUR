@@ -1,0 +1,10 @@
+{
+    "development": {
+        "username": "root",
+        "password": "",
+        "database": "raie-coiffeur",
+        "host": "localhost",
+        "port": 3308,
+        "dialect": "mysql"
+    }
+}
