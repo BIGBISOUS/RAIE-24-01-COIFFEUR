@@ -1,0 +1,25 @@
+<table mat-table [dataSource]="rdvs" class="tableRdv">
+
+  <ng-container matColumnDef="nomClient">
+    <th mat-header-cell *matHeaderCellDef> Nom </th>
+    <td mat-cell *matCellDef="let rdv"> {{rdv.nomClient}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="prenomClient">
+    <th mat-header-cell *matHeaderCellDef> Prenom </th>
+    <td mat-cell *matCellDef="let rdv"> {{rdv.prenomClient}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="nomCoiffeur">
+    <th mat-header-cell *matHeaderCellDef> Coiffeur </th>
+    <td mat-cell *matCellDef="let rdv"> {{rdv.nomCoiffeur}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="dateRdv">
+    <th mat-header-cell *matHeaderCellDef> Date </th>
+    <td mat-cell *matCellDef="let rdv"> {{rdv.dateRdv}} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="rdvListColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: rdvListColumns;"></tr>
+</table>

@@ -11,12 +11,14 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material/material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RdvFormComponent } from './rdv-form/rdv-form.component';
+import { RdvListComponent } from './rdv-list/rdv-list.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
-    RdvFormComponent
+    RdvFormComponent,
+    RdvListComponent
   ],
   imports: [
     MaterialModule,
