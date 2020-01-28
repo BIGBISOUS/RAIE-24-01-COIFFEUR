@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Rdv } from '../models/Rdv';
+import { RdvService } from '../services/rdv.service';
 
 @Component({
   selector: 'app-rdv-form',
@@ -10,20 +11,16 @@ import { Rdv } from '../models/Rdv';
 export class RdvFormComponent implements OnInit {
 
  // Titre de la page
- title = "Formulaire de création d'une règle";
+ title = "Formulaire de création d'un rdv";
 
  // Formulaire de création
  rdvForm: FormGroup;
-
- // Controller sur le formulaire pour actualiser les règles
- rdvControl = new FormControl();
-  rdvService: any;
-
+ 
  // Constructeur
- constructor(private fb: FormBuilder) {
+ constructor(private fb: FormBuilder, private rdvService: RdvService) {
  }
 
- // Permet d'initialiser le formulaire de création d'une règle
+ // Permet d'initialiser le formulaire de création d'un rdv
  ngOnInit() {
    this.rdvForm = this.fb.group({  // Créé une instance de FormGroup
      nomClient: ['', Validators.required],
@@ -40,6 +37,6 @@ export class RdvFormComponent implements OnInit {
      this.rdvForm.get('prenomClient').value,
      this.rdvForm.get('nomCoiffeur').value,
      this.rdvForm.get('dateRdv').value,)
-   this.rdvService.createRule(rdv).subscribe(_value => { console.log(_value) });
+   this.rdvService.createRdv(rdv).subscribe(_value => { console.log(_value) });
  }
 }
