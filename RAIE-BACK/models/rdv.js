@@ -1,7 +1,6 @@
 'use strict'
 
 module.exports = (sequelize, DataTypes) => {
-    console.log(DataTypes);
     const Rdv = sequelize.define(   
         'rdv',
         {        
@@ -13,7 +12,7 @@ module.exports = (sequelize, DataTypes) => {
             nomClient: DataTypes.STRING,
             prenomClient: DataTypes.STRING,
             nomCoiffeur: DataTypes.STRING,
-            dateRdv: Sequelize.DATE,
+            dateRdv: DataTypes.DATE,
         }
     )
     return Rdv
