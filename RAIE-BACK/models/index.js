@@ -2,6 +2,7 @@
 
 // db context
 var Rdv = require('./rdv');
+var Salon = require('./salon');
 
 const config = require('../config/config.json')
 var Sequelize = require('sequelize');
@@ -15,8 +16,8 @@ var server = {
 var sequelize = new Sequelize(config.development);
 
 // create db context
-console.log(Rdv(sequelize, Sequelize));
 server.db['Rdv'] = Rdv(sequelize, Sequelize);
+server.db['Salon'] = Salon(sequelize, Sequelize);
 
 Object.keys(server.db).forEach(modelName => {
     if(server.db[modelName].associate) {

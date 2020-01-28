@@ -7,6 +7,7 @@ var routes = require('./routes/index');
 
 //Routes import
 var rdv = require('./routes/rdv')(express, database);
+var salon = require('./routes/salon')(express, database);
 
 app.get('/', (req, res) => {
     res.send('CA COMPILE')
@@ -27,8 +28,9 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use('/', routes)
-app.use('/rdv', rdv)
+app.use('/', routes);
+app.use('/rdv', rdv);
+app.use('/salon', salon);
 
 // build db sontext {force: true}
 server.db.sequelize.sync().then(function() {

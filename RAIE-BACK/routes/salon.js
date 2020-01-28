@@ -3,23 +3,21 @@ var express = require('express');
 var router  = express.Router();
 
 module.exports = (express) => {
-    // http:get /rdv
-    
+    // http:get /salon
     router.get('/', (req, res) => {
-    models.db.Rdv.findAll({ raw: true }).then(rdv => {
+    models.db.Salon.findAll({ raw: true }).then(salon => {
         res.send(
-            JSON.stringify(rdv)
+            JSON.stringify(salon)
         );
     });
 });
 
-// http:post /rdvs
+// http:post /salons
 router.post('/', (req, res) => {
-    models.db.Rdv.create({
-        nomClient: req.body.nomClient,
-        prenomClient: req.body.prenomClient,
+    models.db.Salon.create({
+        nomSalon: req.body.nomSalon,
+        adresseSalon: req.body.adresseSalon,
         nomCoiffeur: req.body.nomCoiffeur,
-        dateRdv: req.body.dateRdv,
     }).then(t => {
         res.status(201).send(JSON.stringify(t));
     }).catch(err => {
@@ -27,10 +25,10 @@ router.post('/', (req, res) => {
     });
 });
 
-// http:get /rdv/id
+// http:get /salon/id
 router.get('/:id', (req, res) => {
-    models.db.Rdv.findOne({
-        where: { idRdv: req.params.id }
+    models.db.Salon.findOne({
+        where: { idSalon: req.params.id }
     }).then(t => {
         res.status(201).send(JSON.stringify(t));
     }).catch(err => {
@@ -38,10 +36,10 @@ router.get('/:id', (req, res) => {
     });
 });
 
-// http:delete /rdv/id
+// http:delete /salon/id
 router.delete('/:id', (req, res) => {
-    models.db.Rdv.destroy({
-        where: { idRdv: req.params.id }
+    models.db.Salon.destroy({
+        where: { idSalon: req.params.id }
     }).then(t => {
         res.status(201).send(JSON.stringify(t));
     }).catch((err) => {
@@ -49,15 +47,14 @@ router.delete('/:id', (req, res) => {
     });
 });
 
-// http:update /rdv/{id}
+// http:update /salon/{id}
 router.put('/:id', (req, res) => {
-    models.db.Rdv.update({
-        nomClient: req.body.nomClient,
-        prenomClient: req.body.prenomClient,
-        nomCoiffeur: req.body.nomCoiffeur,
-        dateRdv: req.body.dateRdv
+    models.db.Salon.update({
+        nomSalon: req.body.nomSalon,
+        adresseSalon: req.body.adresseSalon,
+        nomCoiffeur: req.body.nomCoiffeur
     }, {
-        where: { idRdv: req.params.id }
+        where: { idSalon: req.params.id }
     }).then(t => {  
         res.status(201).send(JSON.stringify(t));
     }).catch(err => {
