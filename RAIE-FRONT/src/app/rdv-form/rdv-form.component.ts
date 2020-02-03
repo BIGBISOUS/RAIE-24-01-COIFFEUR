@@ -37,6 +37,6 @@ export class RdvFormComponent implements OnInit {
      this.rdvForm.get('prenomClient').value,
      this.rdvForm.get('nomCoiffeur').value,
      this.rdvForm.get('dateRdv').value,)
-   this.rdvService.createRdv(rdv).subscribe(_value => { console.log(_value) });
+   this.rdvService.createRdv(rdv).subscribe(_value => { document.location.reload(true); });
  }
 }

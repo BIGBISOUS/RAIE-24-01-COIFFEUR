@@ -23,13 +23,6 @@ export class RdvService {
   }
   
   public deleteRdvById(id) {
-    this.http.put(`${this.server}rdv/custom/${id}`, 'data').subscribe(
-      res => {
-        console.log('votre rendez-vous à bien été supprimer.', res);
-      },
-      err => {
-        console.log("error occured", err);
-      }
-    );
+    return this.http.delete(`${this.server}rdv/${id}`);
   }
 }

@@ -12,13 +12,15 @@ import { MaterialModule } from './material/material.module';
 import { NavbarComponent } from './navbar/navbar.component';
 import { RdvFormComponent } from './rdv-form/rdv-form.component';
 import { RdvListComponent } from './rdv-list/rdv-list.component';
+import { WarningDialogComponent } from './warning-dialog/warning-dialog.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NavbarComponent,
     RdvFormComponent,
-    RdvListComponent
+    RdvListComponent,
+    WarningDialogComponent
   ],
   imports: [
     MaterialModule,
@@ -31,6 +33,6 @@ import { RdvListComponent } from './rdv-list/rdv-list.component';
   ],
   providers: [],
   bootstrap: [AppComponent],
-  entryComponents: []
+  entryComponents: [ WarningDialogComponent]
 })
 export class AppModule { }
