@@ -16,11 +16,18 @@ export class RdvFormComponent implements OnInit {
  // Formulaire de création
  rdvForm: FormGroup;
  
- // Constructeur
+ /**
+  * Surcharge du constructeur
+  * @param fb - Le formBuilder de la création d'un rdv
+  * @param rdvService - Le service des rdv
+  */
  constructor(private fb: FormBuilder, private rdvService: RdvService) {
  }
 
- // Permet d'initialiser le formulaire de création d'un rdv
+ /**
+  * Surcharge de la méthode ngOnInit
+  * Permet d'initialiser le formulaire de création d'un rdv
+  */
  ngOnInit() {
    this.rdvForm = this.fb.group({  // Créé une instance de FormGroup
      nomClient: ['', Validators.required],
@@ -30,7 +37,10 @@ export class RdvFormComponent implements OnInit {
    });
  }
 
- // Traitement à l'envoi du formulaire depuis l'interface
+ /**
+  * Surcharge de la méthode ngOnSubmit
+  * Traitement à l'envoi du formulaire depuis l'interface
+  */
  ngOnSubmit() {
    const rdv: Rdv = new Rdv(
      this.rdvForm.get('nomClient').value,
